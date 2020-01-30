@@ -1,46 +1,46 @@
 <template>
   <div>
-    <b-modal
-      :id="id"
-      ref="modal"
-      title="Sign in"
-      @show="resetModal"
-      @hidden="resetModal"
-      @ok="handleOk"
-    >
+<div >
+  <b-card title="Login" align-v >
       <form ref="form" @submit.stop.prevent="handleSubmit">
-        <b-form-group
-          :state="nameState"
-          label="User name"
-          label-for="username"
-          invalid-feedback="UserName is required"
-        >
-          <b-form-input
-            id="user-name"
-            v-model="username"
-            :state="nameState"
-            required
-          ></b-form-input>
-        </b-form-group>
-        <b-form-group
-         :state="passwordState"
-         label="password"
-         label-for="password"
-         invalid-feedback="Password is required"
-         >
-         <b-form-input
-            id="password"
-            v-model="password"
-            :state="passwordState"
-            required
-          ></b-form-input>
-        </b-form-group>
-      </form>
-    </b-modal>
+    <b-form-group
+      :state="nameState"
+      label="User name"
+      label-for="username"
+      invalid-feedback="User Name is required"
+    >
+      <b-form-input
+        id="user-name"
+        v-model="username"
+        :state="nameState"
+        required
+      ></b-form-input>
+    </b-form-group>
+    <b-form-group
+      :state="passwordState"
+      label="password"
+      label-for="password"
+      invalid-feedback="Password is required"
+      >
+      <b-form-input
+        id="password"
+        v-model="password"
+        :state="passwordState"
+        required
+      ></b-form-input>
+    </b-form-group>
+    <div align-v>
+        <b-button  @click="handleSubmit" variant="primary">Login</b-button>
+    </div>
+  </form>
+  </b-card>
+</div>
   </div>
 </template>
 
 <script>
+
+import logins from '../loginConfig'
   export default {
      name: 'loginModal',
     data() {
@@ -49,7 +49,8 @@
         nameState: null,
         password: '',
         passwordState: null,
-        id:'login'
+        id:'login',
+        users: {}
       }
     },
     methods: {
@@ -76,12 +77,13 @@
         if (!this.checkFormValidity()) {
           return
         }
-        // sign in and move to the next page
+        this.$router.push('/visitors')
         // Hide the modal manually
         this.$nextTick(() => {
           this.$refs.modal.hide()
         })
-      }
-    }
+      },
+    },
+ 
   }
 </script>

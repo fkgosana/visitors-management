@@ -1,36 +1,22 @@
 <template>
  <div>
-  <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
+   <div>
+  <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="#">Home</b-navbar-brand>
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-         <b-button @click="login" size="sm" class="my-2 my-sm-0" type="submit">Login</b-button>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item href="#">Calendar</b-nav-item>
+        <b-nav-item href="#" >Contact Us</b-nav-item>
       </b-navbar-nav>
+    </b-collapse>
   </b-navbar>
-  <div>
-  <b-carousel
-    id="carousel-fade"
-    style="text-shadow: 0px 0px 2px #000"
-    fade
-    indicators
-    img-width="1024"
-    img-height="480"
-  >
-    <b-carousel-slide
-      caption="First slide"
-      img-src="https://picsum.photos/1024/480/?image=10"
-    ></b-carousel-slide>
-    <b-carousel-slide
-      caption="Second Slide"
-      img-src="https://picsum.photos/1024/480/?image=12"
-    ></b-carousel-slide>
-    <b-carousel-slide
-      caption="Third Slide"
-      img-src="https://picsum.photos/1024/480/?image=22"
-    ></b-carousel-slide>
-  </b-carousel>
 </div>
-  <login id="login" />
+<div>
+<login/>
+</div>
 </div>
 </template>
 

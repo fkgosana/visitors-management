@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
-    <div id="nav">
-    </div>
+<div>
     <router-view/>
-  </div>
+</div>
 </template>
 
 <script>
@@ -11,8 +9,12 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import home from './views/Home.vue';
 Vue.use(BootstrapVue)
 export default {
+  components : {
+    home
+  }
   
 }
 </script>
